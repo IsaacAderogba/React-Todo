@@ -59,7 +59,7 @@ export default class TodoForm extends React.Component {
     return (
       <div style={todoFormStyle}>
         <div style={headerStyle}>
-          <h1 style={headingStyle}>Todos App</h1>
+          <h1 style={headingStyle}>TodoList</h1>
           <button
             style={headingButtonStyle}
             onClick={this.props.clearCompleteTodos}

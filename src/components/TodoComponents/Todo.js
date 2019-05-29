@@ -5,7 +5,8 @@ export default class Todo extends React.Component {
   render() {
       // convert date to String
     let date = this.props.todo.id;
-    
+    let dateString = Date(date.toString());
+    let truncDate = dateString.substr(0, 10) 
 
     // styles
     const todoStyle = {
@@ -68,7 +69,7 @@ export default class Todo extends React.Component {
         >
           X
         </button>
-        <span style={dateStyle}>{this.props.todo.id}</span>
+        <span style={dateStyle}>{truncDate}</span>
       </li>
     );
   }
