@@ -1,27 +1,37 @@
-import React from 'react';
-import TodoList from './components/TodoComponents/TodoList'
+import React from "react";
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
 const initialTodos = [
-  { id: '20041996', task: 'Pay the electric bill', complete: false },
-  { id: '20041997', task: 'Pay the electric bill', complete: true },
-  { id: '20041998', task: 'Pay the electric bill', complete: false },
+  { id: "20041996", task: "Pay the electric bill", complete: false },
+  { id: "20041997", task: "Pay the electric bill", complete: true },
+  { id: "20041998", task: "Pay the electric bill", complete: false }
 ];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
+  // design `App` to be the parent component of your application.
+  // this component is going to take care of state, and any change handlers you need to work with your state
+
   constructor(props) {
     super(props);
     this.state = {
       todosList: initialTodos,
-    }
+      todosTaskName: ""
+    };
   }
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+
+  inputHandler = (input) => {
+    this.setState({
+      todosTaskName: input.target.value,
+    })
+  }
+
   render() {
     return (
       <div>
-        <h1>Todos App</h1>
-        <TodoList todosList={this.state.todosList}/>
+        <TodoForm todosTaskName= {this.state.todosTaskName} inputHandler={this.inputHandler} />
+        <TodoList todosList={this.state.todosList} />
       </div>
     );
   }
