@@ -3,11 +3,18 @@ import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import "./components/TodoComponents/Todo.css";
 
-
 const initialTodos = [
   { id: "1559140530360", task: "Pay the electricity bill", complete: false },
-  { id: "1559140546041", task: "Book an appointment at the embassy", complete: true },
-  { id: "1559140554289", task: "Learn how to make a croissant", complete: false }
+  {
+    id: "1559140546041",
+    task: "Book an appointment at the embassy",
+    complete: true
+  },
+  {
+    id: "1559140554289",
+    task: "Learn how to make a croissant",
+    complete: false
+  }
 ];
 
 class App extends React.Component {
@@ -78,10 +85,12 @@ class App extends React.Component {
 
   // render the application on to the webpage, passing relevant props
   render() {
-
     const appStyle = {
+      backgroundColor: "white",
       maxWidth: "600px",
       margin: "0 auto",
+      borderRadius: "8px",
+      paddingBottom: '8px'
     };
 
     return (
