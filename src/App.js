@@ -42,11 +42,18 @@ class App extends React.Component {
     });
   }
 
+  removeTodo = (id) => {
+    const newTodosList = this.state.todosList.filter(todo => todo.id !== id);
+    this.setState({
+      todosList: newTodosList,
+    });
+  }
+
   render() {
     return (
       <div>
         <TodoForm todosTaskName= {this.state.todosTaskName} inputHandler={this.inputHandler} addTodo={this.addTodo} />
-        <TodoList todosList={this.state.todosList} />
+        <TodoList todosList={this.state.todosList} removeTodo={this.removeTodo} />
       </div>
     );
   }

@@ -6,7 +6,7 @@ export default class Todo extends React.Component {
       <li>
         <span>{this.props.todo.complete}</span>
         <p>{this.props.todo.task}</p>
-        <button>X</button>
+        <button onClick={() => this.props.removeTodo(this.props.todo.id)}>X</button>
         <span>{this.props.todo.id}</span>
       </li>
     );
