@@ -22,7 +22,9 @@ export default class TodoForm extends React.Component {
       padding: "8px 20px",
       borderRadius: "4px",
       boxShadaow: "0px 4px 4px rgba(0, 0, 0, 0.1)",
-      border: "none"
+      border: "none",
+      cursor: 'pointer',
+      outline:'none',
     };
 
     const headingStyle = {
@@ -53,7 +55,9 @@ export default class TodoForm extends React.Component {
       fontSize: "24px",
       fontWeight: "bold",
       width: "40px",
-      height: "40px"
+      height: "40px",
+      cursor: 'pointer',
+      outline:'none',
     };
 
     return (

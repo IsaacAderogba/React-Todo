@@ -28,7 +28,10 @@ export default class Todo extends React.Component {
       fontWeight: "bold",
       width: "24px",
       height: "24px",
-      marginRight: "16px"
+      marginRight: "16px",
+      cursor: 'pointer',
+      outline:'none',
+
     };
 
     const cancelTodoItem = {
@@ -40,7 +43,10 @@ export default class Todo extends React.Component {
       border: "none",
       width: "24px",
       height: "24px",
-      marginRight: "16px"
+      marginRight: "16px",
+      cursor: 'pointer',
+      outline:'none',
+
     };
 
     const taskContentStyle = {

@@ -18,7 +18,7 @@ export default class TodoList extends React.Component {
 
     return (
       <div style={todoListStyle}>
-        <h2>Today</h2>
+        <h2>Your Todos</h2>
         <ul style={ulStyle}>
           {this.props.todosList.map(todo => {
             return (
