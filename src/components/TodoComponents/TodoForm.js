@@ -6,7 +6,6 @@ export default class TodoForm extends React.Component {
   render() {
     const todoFormStyle = {
       margin: "18px",
-      border: "1px solid blue"
     };
 
     const headerStyle = {
@@ -20,14 +19,15 @@ export default class TodoForm extends React.Component {
       backgroundColor: "#24292E",
       color: "white",
       fontSize: "16px",
-      padding: "12px 24px",
+      padding: "8px 20px",
       borderRadius: "4px",
       boxShadaow: "0px 4px 4px rgba(0, 0, 0, 0.1)",
       border: "none"
     };
 
     const headingStyle = {
-      fontWeight: "bold"
+      fontWeight: "bold",
+      marginBottom: '18px'
     };
 
     const addTodoStyle = {
@@ -50,7 +50,7 @@ export default class TodoForm extends React.Component {
       boxShadaow: "0px 4px 4px rgba(0, 0, 0, 0.1)",
       border: "none",
       color: "white",
-      fontSize: "30px",
+      fontSize: "24px",
       fontWeight: "bold",
       width: "40px",
       height: "40px"

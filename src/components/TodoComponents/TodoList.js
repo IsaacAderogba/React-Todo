@@ -7,10 +7,19 @@ export default class TodoList extends React.Component {
   // render  TodoList component on to screen
 
   render() {
+    const todoListStyle = {
+        margin: "24px 18px 0 18px",
+      };
+
+    const ulStyle = {
+        margin: "0",
+        paddingLeft: '0',
+    }
+
     return (
-      <>
+      <div style={todoListStyle}>
         <h2>Today</h2>
-        <ul>
+        <ul style={ulStyle}>
           {this.props.todosList.map(todo => {
             return (
               <Todo
@@ -22,7 +31,7 @@ export default class TodoList extends React.Component {
             );
           })}
         </ul>
-      </>
+      </div>
     );
   }
 }

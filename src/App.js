@@ -5,9 +5,9 @@ import "./components/TodoComponents/Todo.css";
 
 
 const initialTodos = [
-  { id: "20041996", task: "Pay the electric bill", complete: false },
-  { id: "20041997", task: "Pay the electric bill", complete: true },
-  { id: "20041998", task: "Pay the electric bill", complete: false }
+  { id: "1559140530360", task: "Pay the electricity bill", complete: false },
+  { id: "1559140546041", task: "Book an appointment at the embassy", complete: true },
+  { id: "1559140554289", task: "Learn how to make a croissant", complete: false }
 ];
 
 class App extends React.Component {
@@ -82,7 +82,6 @@ class App extends React.Component {
     const appStyle = {
       maxWidth: "600px",
       margin: "0 auto",
-      border: "1px solid red"
     };
 
     return (
