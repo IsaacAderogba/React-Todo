@@ -8,7 +8,7 @@ export default class TodoList extends React.Component {
         <button>Clear Completed</button>
         <div>
           <input value={this.props.todosTaskName} onChange={this.props.inputHandler} type="text" />
-          <button> + </button>
+          <button onClick={this.props.addTodo}> + </button>
         </div>
       </>
     );
