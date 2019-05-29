@@ -5,7 +5,7 @@ export default class TodoList extends React.Component {
     return (
       <>
         <h1>Todos App</h1>
-        <button>Clear Completed</button>
+        <button onClick={this.props.clearCompleteTodos}>Clear Completed</button>
         <div>
           <input value={this.props.todosTaskName} onChange={this.props.inputHandler} type="text" />
           <button onClick={this.props.addTodo}> + </button>

@@ -21,52 +21,69 @@ class App extends React.Component {
     };
   }
 
-  inputHandler = (input) => {
+  inputHandler = input => {
     this.setState({
-      todosTaskName: input.target.value,
-    })
-  }
+      todosTaskName: input.target.value
+    });
+  };
 
   addTodo = () => {
     const newTodo = {
       id: Date.now(),
       task: this.state.todosTaskName,
-      complete: false,
+      complete: false
     };
 
     const newTodosList = this.state.todosList.concat(newTodo);
 
     this.setState({
       todosList: newTodosList,
-      todosTaskName: '',
+      todosTaskName: ""
     });
-  }
+  };
 
-  isTodoComplete = (id) => {
+  removeTodo = id => {
+    const newTodosList = this.state.todosList.filter(todo => todo.id !== id);
+    this.setState({
+      todosList: newTodosList
+    });
+  };
+
+  isTodoComplete = id => {
     const newTodosList = this.state.todosList.map(todo => {
-      if(todo.id === id) {
+      if (todo.id === id) {
         todo.complete = todo.complete ? false : true;
       }
       return todo;
     });
 
     this.setState({
-      todosList: newTodosList,
+      todosList: newTodosList
     });
-  }
+  };
 
-  removeTodo = (id) => {
-    const newTodosList = this.state.todosList.filter(todo => todo.id !== id);
+  clearCompleteTodos = () => {
+    const newTodoList = this.state.todosList.filter(todo => !todo.complete);
+
     this.setState({
-      todosList: newTodosList,
+      todosList: newTodoList
     });
-  }
+  };
 
   render() {
     return (
       <div>
-        <TodoForm todosTaskName= {this.state.todosTaskName} inputHandler={this.inputHandler} addTodo={this.addTodo} />
-        <TodoList todosList={this.state.todosList} removeTodo={this.removeTodo} isTodoComplete={this.isTodoComplete}/>
+        <TodoForm
+          todosTaskName={this.state.todosTaskName}
+          clearCompleteTodos={this.clearCompleteTodos}
+          inputHandler={this.inputHandler}
+          addTodo={this.addTodo}
+        />
+        <TodoList
+          todosList={this.state.todosList}
+          removeTodo={this.removeTodo}
+          isTodoComplete={this.isTodoComplete}
+        />
       </div>
     );
   }
