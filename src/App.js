@@ -42,6 +42,19 @@ class App extends React.Component {
     });
   }
 
+  isTodoComplete = (id) => {
+    const newTodosList = this.state.todosList.map(todo => {
+      if(todo.id === id) {
+        todo.complete = todo.complete ? false : true;
+      }
+      return todo;
+    });
+
+    this.setState({
+      todosList: newTodosList,
+    });
+  }
+
   removeTodo = (id) => {
     const newTodosList = this.state.todosList.filter(todo => todo.id !== id);
     this.setState({
@@ -53,7 +66,7 @@ class App extends React.Component {
     return (
       <div>
         <TodoForm todosTaskName= {this.state.todosTaskName} inputHandler={this.inputHandler} addTodo={this.addTodo} />
-        <TodoList todosList={this.state.todosList} removeTodo={this.removeTodo} />
+        <TodoList todosList={this.state.todosList} removeTodo={this.removeTodo} isTodoComplete={this.isTodoComplete}/>
       </div>
     );
   }

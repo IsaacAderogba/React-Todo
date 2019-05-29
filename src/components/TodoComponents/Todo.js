@@ -1,10 +1,15 @@
 import React from "react";
 
 export default class Todo extends React.Component {
+
   render() {
+    const style = {
+        color: this.props.todo.complete ? 'black' : 'white'
+    }
+
     return (
       <li>
-        <span>{this.props.todo.complete}</span>
+        <button style={style} onClick={() => this.props.isTodoComplete(this.props.todo.id)}>✓</button>
         <p>{this.props.todo.task}</p>
         <button onClick={() => this.props.removeTodo(this.props.todo.id)}>X</button>
         <span>{this.props.todo.id}</span>
@@ -12,3 +17,6 @@ export default class Todo extends React.Component {
     );
   }
 }
+
+
+// {this.props.todo.complete}

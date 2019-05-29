@@ -2,7 +2,7 @@
 // feel free to change this component.js into TodoList.js
 
 import React from "react";
-import Todo from './Todo';
+import Todo from "./Todo";
 
 export default class TodoList extends React.Component {
   render() {
@@ -11,7 +11,14 @@ export default class TodoList extends React.Component {
         <h2>Today</h2>
         <ul>
           {this.props.todosList.map(todo => {
-            return <Todo removeTodo={this.props.removeTodo} key={todo.id} todo={todo}/>;
+            return (
+              <Todo
+                removeTodo={this.props.removeTodo}
+                isTodoComplete={this.props.isTodoComplete}
+                key={todo.id}
+                todo={todo}
+              />
+            );
           })}
         </ul>
       </>
