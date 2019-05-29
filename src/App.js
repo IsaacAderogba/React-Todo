@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoList from './components/TodoComponents/TodoList'
 
 const initialTodos = [
   { id: '20041996', task: 'Pay the electric bill', complete: false },
@@ -19,10 +20,47 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <h1>Todos App</h1>
+        <TodoList todosList={this.state.todosList}/>
       </div>
     );
   }
 }
 
 export default App;
+
+// export class ContainerClassy extends Component {
+// constructor(props) {
+// super(props);
+// this.state = {
+// count: 0,
+// };
+// }
+// increment = () => this.setState({ count: this.state.count + 1 });
+// decrement = () => this.setState({ count: this.state.count - 1 });
+// render() {
+// return (
+// <Displayer
+// type="class component"
+// count={this.state.count}
+// increment={this.increment}
+// decrement={this.decrement}
+// />
+// );
+// }
+// }
+// export function ContainerFunctional() {
+// const [count, setCount] = useState(0);
+// const increment = () => setCount(count + 1);
+// const decrement = () => setCount(count - 1);
+// return <Displayer type="functional" count={count} increment={increment} decrement={decrement} />;
+// }
+// function Displayer({ type, count, increment, decrement }) {
+// return (
+// <div>
+// {type} count is {count}
+// <button onClick={increment}>increment</button>
+// <button onClick={decrement}>decrement</button>
+// </div>
+// );
+// }
