@@ -1,6 +1,8 @@
 import React from "react";
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import "./components/TodoComponents/Todo.css";
+
 
 const initialTodos = [
   { id: "20041996", task: "Pay the electric bill", complete: false },
@@ -76,8 +78,15 @@ class App extends React.Component {
 
   // render the application on to the webpage, passing relevant props
   render() {
+
+    const appStyle = {
+      maxWidth: "600px",
+      margin: "0 auto",
+      border: "1px solid red"
+    };
+
     return (
-      <div>
+      <div style={appStyle}>
         <TodoForm
           todosTaskName={this.state.todosTaskName}
           clearCompleteTodos={this.clearCompleteTodos}
