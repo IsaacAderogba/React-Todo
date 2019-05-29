@@ -9,10 +9,7 @@ const initialTodos = [
 ];
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-
+  // Necessary state for the todo app
   constructor(props) {
     super(props);
     this.state = {
@@ -21,27 +18,32 @@ class App extends React.Component {
     };
   }
 
+  // function to display input that the user enters on screen
   inputHandler = input => {
     this.setState({
       todosTaskName: input.target.value
     });
   };
 
+  // function to add a new todo if user presses button to add new todo
   addTodo = () => {
-    const newTodo = {
-      id: Date.now(),
-      task: this.state.todosTaskName,
-      complete: false
-    };
+    if (this.state.todosTaskName) {
+      const newTodo = {
+        id: Date.now(),
+        task: this.state.todosTaskName,
+        complete: false
+      };
 
-    const newTodosList = this.state.todosList.concat(newTodo);
+      const newTodosList = this.state.todosList.concat(newTodo);
 
-    this.setState({
-      todosList: newTodosList,
-      todosTaskName: ""
-    });
+      this.setState({
+        todosList: newTodosList,
+        todosTaskName: ""
+      });
+    }
   };
 
+  // function to remove todo if user presses the x button beside the todo
   removeTodo = id => {
     const newTodosList = this.state.todosList.filter(todo => todo.id !== id);
     this.setState({
@@ -49,6 +51,7 @@ class App extends React.Component {
     });
   };
 
+  // function that checks whether the completion status of the todo should be true or false
   isTodoComplete = id => {
     const newTodosList = this.state.todosList.map(todo => {
       if (todo.id === id) {
@@ -62,6 +65,7 @@ class App extends React.Component {
     });
   };
 
+  // function to clear all todos that have a completion status of true
   clearCompleteTodos = () => {
     const newTodoList = this.state.todosList.filter(todo => !todo.complete);
 
@@ -70,6 +74,7 @@ class App extends React.Component {
     });
   };
 
+  // render the application on to the webpage, passing relevant props
   render() {
     return (
       <div>
@@ -90,39 +95,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// export class ContainerClassy extends Component {
-// constructor(props) {
-// super(props);
-// this.state = {
-// count: 0,
-// };
-// }
-// increment = () => this.setState({ count: this.state.count + 1 });
-// decrement = () => this.setState({ count: this.state.count - 1 });
-// render() {
-// return (
-// <Displayer
-// type="class component"
-// count={this.state.count}
-// increment={this.increment}
-// decrement={this.decrement}
-// />
-// );
-// }
-// }
-// export function ContainerFunctional() {
-// const [count, setCount] = useState(0);
-// const increment = () => setCount(count + 1);
-// const decrement = () => setCount(count - 1);
-// return <Displayer type="functional" count={count} increment={increment} decrement={decrement} />;
-// }
-// function Displayer({ type, count, increment, decrement }) {
-// return (
-// <div>
-// {type} count is {count}
-// <button onClick={increment}>increment</button>
-// <button onClick={decrement}>decrement</button>
-// </div>
-// );
-// }
