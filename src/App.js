@@ -4,8 +4,16 @@ import TodoForm from "./components/TodoComponents/TodoForm";
 import "./components/TodoComponents/Todo.css";
 
 const initialTodos = [
-  { id: "1559140530360", task: "Use the input field and \"+\" button to add a todo", complete: false },
-  { id: "1559140530362", task: "Click the button to the left to complete a todo", complete: false },
+  {
+    id: "1559140530360",
+    task: 'Use the input field and "+" button to add a todo',
+    complete: false
+  },
+  {
+    id: "1559140530362",
+    task: "Click the button to the left to complete a todo",
+    complete: false
+  },
   {
     id: "1559140546041",
     task: "Click the button to the right to delete this todo",
@@ -13,20 +21,45 @@ const initialTodos = [
   },
   {
     id: "1559140554289",
-    task: "Use the \"Clear Completed\" button to clear todos",
+    task: 'Use the "Clear Completed" button to clear todos',
     complete: false
   }
 ];
+
+const savedTodos = [];
 
 class App extends React.Component {
   // Necessary state for the todo app
   constructor(props) {
     super(props);
+
+    this.retrieveTodos();
     this.state = {
-      todosList: initialTodos,
+      todosList: savedTodos.length >= 1 ? savedTodos : initialTodos,
       todosTaskName: ""
     };
   }
+
+  // function helper to retrieveTodos from local storage
+  retrieveTodos = () => {
+    if (localStorage.length >= 1) {
+      for (let i = 0; i < localStorage.length; i++) {
+        let retrievedTodo = JSON.parse(window.localStorage.getItem(i));
+        savedTodos.push(retrievedTodo);
+      }
+    }
+  };
+
+  // function helper to saveTodos to local storage
+  saveTodos = () => {
+    localStorage.clear();
+    let count = 0;
+
+    this.state.todosList.forEach(todo => {
+      localStorage.setItem(count, JSON.stringify(todo));
+      count++;
+    });
+  };
 
   // function to display input that the user enters on screen
   inputHandler = input => {
@@ -65,7 +98,7 @@ class App extends React.Component {
   isTodoComplete = id => {
     const newTodosList = this.state.todosList.map(todo => {
       if (todo.id === id) {
-        todo.complete = todo.complete ? false : true; 
+        todo.complete = todo.complete ? false : true;
       }
       return todo;
     });
@@ -86,12 +119,14 @@ class App extends React.Component {
 
   // render the application on to the webpage, passing relevant props
   render() {
+    this.saveTodos();
+
     const appStyle = {
       backgroundColor: "white",
       maxWidth: "600px",
       margin: "0 auto",
       borderRadius: "8px",
-      paddingBottom: '8px'
+      paddingBottom: "8px"
     };
 
     return (
