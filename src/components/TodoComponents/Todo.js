@@ -50,7 +50,7 @@ export default class Todo extends React.Component {
     };
 
     const taskContentStyle = {
-      textDecoration: this.props.todo.complete ? 'line-through' : 'none',
+      textDecoration: this.props.todo.complete ? 'line-through' : 'none', // if true, then put a line-through, otherwise don't
       marginRight: "16px"
     };
 
