@@ -144,7 +144,7 @@ class App extends React.Component {
           removeTodo={this.removeTodo}
           isTodoComplete={this.isTodoComplete}
         />
-        <p style={{fontSize: '12px', textAlign: 'center'}}>Background vector asset by the wonderful folk at <a style={{textDecoration: 'none', color: '#0076ff'}} href='https://www.freepik.com/free-vector/colorful-memphis-design-background-vector_3893585.htm'>freepik</a> </p>
+        <p style={{fontSize: '10px', textAlign: 'center'}}>Background vector asset by the wonderful folk at <a style={{textDecoration: 'none', color: '#0076ff'}} href='https://www.freepik.com/free-vector/colorful-memphis-design-background-vector_3893585.htm'>freepik</a> </p>
       </div>
     );
   }

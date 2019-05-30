@@ -1,5 +1,6 @@
 import React from "react";
 import Todo from "./Todo";
+import TodoSearch from "./TodoSearch";
 import "./Todo.css";
 
 
@@ -19,6 +20,7 @@ export default class TodoList extends React.Component {
     return (
       <div style={todoListStyle}>
         <h2>Your Todos</h2>
+        <TodoSearch />
         <ul style={ulStyle}>
           {this.props.todosList.map(todo => {
             return (

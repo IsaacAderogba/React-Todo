@@ -40,6 +40,7 @@ export default class TodoForm extends React.Component {
 
     const inputStyle = {
       width: "75%",
+      marginRight: '8px',
       borderRadius: "16px",
       border: "1px solid #A0A0A0",
       padding: "0 16px",
@@ -63,7 +64,7 @@ export default class TodoForm extends React.Component {
     return (
       <div style={todoFormStyle}>
         <div style={headerStyle}>
-          <h1 style={headingStyle}>TodoList</h1>
+          <h1 style={headingStyle}>FocusList</h1>
           <button
             style={headingButtonStyle}
             onClick={this.props.clearCompleteTodos}
