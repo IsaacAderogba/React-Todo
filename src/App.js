@@ -36,7 +36,9 @@ class App extends React.Component {
     this.retrieveTodos();
     this.state = {
       todosList: savedTodos.length >= 1 ? savedTodos : initialTodos,
-      todosTaskName: ""
+      todosTaskName: "",
+      searchInput: '',
+      searchTodos: [],
     };
   }
 
@@ -60,6 +62,29 @@ class App extends React.Component {
       count++;
     });
   };
+
+  onSearchHandler = input => {
+
+    const newSearchList = this.state.todosList.filter(todo => {
+      if(todo.task.includes(input.target.value)) {
+        return todo;
+      }
+      return null;
+    });
+
+    this.setState({
+      searchInput: input.target.value,
+      searchTodos: newSearchList
+    });
+
+    if(input.target.value.length < 1) {
+      this.setState({
+        searchTodos: []
+      })
+    }
+
+
+  }
 
   // function to display input that the user enters on screen
   inputHandler = input => {
@@ -140,6 +165,9 @@ class App extends React.Component {
           addTodo={this.addTodo}
         />
         <TodoList
+          onSearchHandler={this.onSearchHandler}
+          searchInput={this.state.searchInput}
+          searchTodos = {this.state.searchTodos}
           todosList={this.state.todosList}
           removeTodo={this.removeTodo}
           isTodoComplete={this.isTodoComplete}
