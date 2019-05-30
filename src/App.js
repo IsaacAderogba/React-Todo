@@ -37,8 +37,8 @@ class App extends React.Component {
     this.state = {
       todosList: savedTodos.length >= 1 ? savedTodos : initialTodos,
       todosTaskName: "",
-      searchInput: '',
-      searchTodos: [],
+      searchInput: "",
+      searchTodos: []
     };
   }
 
@@ -64,9 +64,8 @@ class App extends React.Component {
   };
 
   onSearchHandler = input => {
-
     const newSearchList = this.state.todosList.filter(todo => {
-      if(todo.task.includes(input.target.value)) {
+      if (todo.task.includes(input.target.value)) {
         return todo;
       }
       return null;
@@ -77,14 +76,12 @@ class App extends React.Component {
       searchTodos: newSearchList
     });
 
-    if(input.target.value.length < 1) {
+    if (input.target.value.length < 1) {
       this.setState({
         searchTodos: []
-      })
+      });
     }
-
-
-  }
+  };
 
   // function to display input that the user enters on screen
   inputHandler = input => {
@@ -152,8 +149,7 @@ class App extends React.Component {
       margin: "0 auto",
       borderRadius: "8px",
       paddingBottom: "8px",
-      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.20)'
-
+      boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.20)"
     };
 
     return (
@@ -167,12 +163,20 @@ class App extends React.Component {
         <TodoList
           onSearchHandler={this.onSearchHandler}
           searchInput={this.state.searchInput}
-          searchTodos = {this.state.searchTodos}
+          searchTodos={this.state.searchTodos}
           todosList={this.state.todosList}
           removeTodo={this.removeTodo}
           isTodoComplete={this.isTodoComplete}
         />
-        <p style={{fontSize: '10px', textAlign: 'center'}}>Background vector asset by the wonderful folk at <a style={{textDecoration: 'none', color: '#0076ff'}} href='https://www.freepik.com/free-vector/colorful-memphis-design-background-vector_3893585.htm'>freepik</a> </p>
+        <p style={{ fontSize: "10px", textAlign: "center" }}>
+          Background vector asset by the wonderful folk at{" "}
+          <a
+            style={{ textDecoration: "none", color: "#0076ff" }}
+            href="https://www.freepik.com/free-vector/colorful-memphis-design-background-vector_3893585.htm"
+          >
+            freepik
+          </a>{" "}
+        </p>
       </div>
     );
   }
