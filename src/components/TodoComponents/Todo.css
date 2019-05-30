@@ -2,5 +2,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: #E5E5E5;
+    background: #ffeee7;
+    background-image: url("../../img/background-image.jpg");
+    background-size: cover;
+
 }

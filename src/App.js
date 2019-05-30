@@ -126,7 +126,9 @@ class App extends React.Component {
       maxWidth: "600px",
       margin: "0 auto",
       borderRadius: "8px",
-      paddingBottom: "8px"
+      paddingBottom: "8px",
+      boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.20)'
+
     };
 
     return (
