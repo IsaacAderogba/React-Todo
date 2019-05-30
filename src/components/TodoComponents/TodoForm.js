@@ -76,7 +76,7 @@ export default class TodoForm extends React.Component {
             style={inputStyle}
             value={this.props.todosTaskName}
             onChange={this.props.inputHandler}
-            placeholder="Click to quickly add a new task"
+            placeholder="Add your new task here"
             type="text"
           />
           <button style={inputButtonStyle} onClick={this.props.addTodo}>
