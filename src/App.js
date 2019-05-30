@@ -4,15 +4,16 @@ import TodoForm from "./components/TodoComponents/TodoForm";
 import "./components/TodoComponents/Todo.css";
 
 const initialTodos = [
-  { id: "1559140530360", task: "Pay the electricity bill", complete: false },
+  { id: "1559140530360", task: "Use the input field and \"+\" button to add a todo", complete: false },
+  { id: "1559140530362", task: "Click the button to the left to complete a todo", complete: false },
   {
     id: "1559140546041",
-    task: "Book an appointment at the embassy",
+    task: "Click the button to the right to delete this todo",
     complete: true
   },
   {
     id: "1559140554289",
-    task: "Learn how to make a croissant",
+    task: "Use the \"Clear Completed\" button to clear todos",
     complete: false
   }
 ];
@@ -54,7 +55,7 @@ class App extends React.Component {
 
   // function to remove todo if user presses the x button beside the todo
   removeTodo = id => {
-    const newTodosList = this.state.todosList.filter(todo => todo.id !== id);
+    const newTodosList = this.state.todosList.filter(todo => todo.id !== id); // return every other todo, except the todo which matches the ID
     this.setState({
       todosList: newTodosList
     });
@@ -64,7 +65,7 @@ class App extends React.Component {
   isTodoComplete = id => {
     const newTodosList = this.state.todosList.map(todo => {
       if (todo.id === id) {
-        todo.complete = todo.complete ? false : true;
+        todo.complete = todo.complete ? false : true; 
       }
       return todo;
     });
