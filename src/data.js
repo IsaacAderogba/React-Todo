@@ -1,7 +1,3 @@
-import React from 'react';
-import TodoContainer from './components/TodoComponents/TodoContainer';
-import './data.js';
-
 const initialTodos = [
     {
       id: "1559140530360",
@@ -26,12 +22,3 @@ const initialTodos = [
   ];
   
 const savedTodos = [];
-
-export default class App extends React.Component {
-
-    render() {
-        return (
-            <TodoContainer initialTodos={initialTodos} savedTodos={savedTodos}/>
-        );
-    }
-}
